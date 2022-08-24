@@ -16,12 +16,26 @@ false
 
 Program(Boolean, Boolean)
 
-# Variables
+# URL as Variable
 GET {{url_1234}}
 
 ==>
 
-Program(HttpVerb, Variable)
+Program(HttpMethod, Variable)
+
+# URL with Variable
+GET http://{{url_1234}}
+
+==>
+
+Program(HttpMethod,UrlProtocol,Variable)
+
+# URL with Variable and path
+GET http://{{url_1234}}/demo
+
+==>
+
+Program(HttpMethod,UrlProtocol,Variable)
 
 # Strings
 
@@ -31,3 +45,13 @@ Program(HttpVerb, Variable)
 ==>
 
 Program(String, String)
+
+# Test case
+
+GET {{url}}/
+[Captures]
+#something
+
+==>
+
+Program(HttpMethod, Path(Variable), Section,LineComment)

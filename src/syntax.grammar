@@ -8,8 +8,13 @@ expression {
   Boolean |
   Number |
   Protocol |
-  HttpVerb
+  HttpMethod |
+  Section |
+  UrlProtocol |
+  Path
 }
+
+Path { expression "/" }
 
 @tokens {
   Variable { "{{" ![\n]* "}}" }
@@ -24,9 +29,13 @@ expression {
 
   space { $[ \t\n\r]+ }
 
+  UrlProtocol { "http://" | "https://" }
+
   Protocol { "HTTP" }
 
-  HttpVerb { "CONNECT" | "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT" | "TRACE" }
+  HttpMethod { "CONNECT" | "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT" | "TRACE" }
+
+  Section { "[Asserts]" | "[Captures]" | "[FormParams]" | "[MultipartFormData]" | "[QueryStringParams]" }
 }
 
 @detectDelim
