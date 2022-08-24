@@ -31,11 +31,11 @@ GET http://{{url_1234}}
 Program(HttpMethod,UrlProtocol,Variable)
 
 # URL with Variable and path
-GET http://{{url_1234}}/demo
+GET http://{{url_1234}}/demo/de bug_123
 
 ==>
 
-Program(HttpMethod,UrlProtocol,Variable)
+Program(HttpMethod,UrlProtocol,Variable,Path)
 
 # Strings
 

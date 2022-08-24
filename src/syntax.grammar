@@ -14,8 +14,6 @@ expression {
   Path
 }
 
-Path { expression "/" }
-
 @tokens {
   Variable { "{{" ![\n]* "}}" }
 
@@ -29,7 +27,9 @@ Path { expression "/" }
 
   space { $[ \t\n\r]+ }
 
-  UrlProtocol { "http://" | "https://" }
+  UrlProtocol { ("http" | "https") "://" }
+
+  Path { ("/" ![\s]+)+}
 
   Protocol { "HTTP" }
 
