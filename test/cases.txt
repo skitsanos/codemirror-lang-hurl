@@ -1,20 +1,27 @@
+# Numbers
+
+10
+20
+12293847289347
+
+==>
+Program(Number, Number, Number)
+
 # Booleans
 
-#t
-#f
+true
+false
 
 ==>
 
 Program(Boolean, Boolean)
 
-# Identifiers
-
-one
-Two_Three
+# Variables
+GET {{url_1234}}
 
 ==>
 
-Program(Identifier, Identifier)
+Program(HttpVerb, Variable)
 
 # Strings
 
@@ -24,18 +31,3 @@ Program(Identifier, Identifier)
 ==>
 
 Program(String, String)
-
-# Applications
-
-(begin
-  (when #t
-    (print (concat "hello" " " "world")))
-  (print "DONE"))
-
-==>
-
-Program(Application(
-  Identifier,
-  Application(Identifier, Boolean, Application(
-    Identifier, Application(Identifier, String, String, String)))
-  Application(Identifier, String)))

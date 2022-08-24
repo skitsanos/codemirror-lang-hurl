@@ -3,24 +3,30 @@
 @skip { space | LineComment }
 
 expression {
-  Identifier |
+  Variable |
   String |
   Boolean |
-  Application { "(" expression* ")" }
+  Number |
+  Protocol |
+  HttpVerb
 }
 
 @tokens {
-  Identifier { $[a-zA-Z_\-0-9]+ }
+  Variable { "{{" ![\n]* "}}" }
 
   String { '"' (!["\\] | "\\" _)* '"' }
 
-  Boolean { "#t" | "#f" }
+  Number { @digit+ }
 
-  LineComment { ";" ![\n]* }
+  Boolean { "true" | "false" }
+
+  LineComment { "#" ![\n]* }
 
   space { $[ \t\n\r]+ }
 
-  "(" ")"
+  Protocol { "HTTP" }
+
+  HttpVerb { "CONNECT" | "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT" | "TRACE" }
 }
 
 @detectDelim

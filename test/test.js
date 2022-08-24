@@ -1,17 +1,25 @@
-import {EXAMPLELanguage} from "../dist/index.js"
-import {fileTests} from "@lezer/generator/dist/test"
+import {HurlLanguage} from '../dist/index.js';
+import {fileTests} from '@lezer/generator/dist/test';
 
-import * as fs from "fs"
-import * as path from "path"
-import { fileURLToPath } from 'url';
-let caseDir = path.dirname(fileURLToPath(import.meta.url))
+import * as fs from 'fs';
+import * as path from 'path';
+import {fileURLToPath} from 'url';
 
-for (let file of fs.readdirSync(caseDir)) {
-  if (!/\.txt$/.test(file)) continue
+let caseDir = path.dirname(fileURLToPath(import.meta.url));
 
-  let name = /^[^\.]*/.exec(file)[0]
-  describe(name, () => {
-    for (let {name, run} of fileTests(fs.readFileSync(path.join(caseDir, file), "utf8"), file))
-      it(name, () => run(EXAMPLELanguage.parser))
-  })
+for (let file of fs.readdirSync(caseDir))
+{
+    if (!/\.txt$/.test(file))
+    {
+        continue;
+    }
+
+    let name = /^[^\.]*/.exec(file)[0];
+    describe(name, () =>
+    {
+        for (let {name, run} of fileTests(fs.readFileSync(path.join(caseDir, file), 'utf8'), file))
+        {
+            it(name, () => run(HurlLanguage.parser))
+        }
+    })
 }

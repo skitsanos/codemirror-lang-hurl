@@ -1,10 +1,11 @@
 {
-  "name": "codemirror-lang-EXAMPLE",
+  "name": "codemirror-lang-hurl",
   "version": "0.1.0",
-  "description": "EXAMPLE language support for CodeMirror",
+  "description": "Hurl language support for CodeMirror",
   "scripts": {
     "test": "mocha test/test.js",
-    "prepare": "rollup -c"
+    "prepare": "rollup -c",
+    "build-and-test": "rollup -c && mocha test/test.js"
   },
   "type": "module",
   "main": "dist/index.cjs",
