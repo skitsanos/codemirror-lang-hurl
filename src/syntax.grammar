@@ -29,7 +29,7 @@ expression {
 
   UrlProtocol { ("http" | "https") "://" }
 
-  Path { ("/" ![\s]+)+}
+  Path { ("/" | ("/" $[a-zA-Z_\-0-9]+)+) ![ \n]* }
 
   Protocol { "HTTP" }
 

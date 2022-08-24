@@ -31,7 +31,7 @@ GET http://{{url_1234}}
 Program(HttpMethod,UrlProtocol,Variable)
 
 # URL with Variable and path
-GET http://{{url_1234}}/demo/de bug_123
+GET http://{{url_1234}}/demo/de.bug_123?qs=true
 
 ==>
 
@@ -54,4 +54,4 @@ GET {{url}}/
 
 ==>
 
-Program(HttpMethod, Path(Variable), Section,LineComment)
+Program(HttpMethod,Variable,Path,Section,LineComment)
