@@ -12,14 +12,6 @@ import {styleTags, tags as t} from '@lezer/highlight';
 export const HurlLanguage = LRLanguage.define({
     parser: parser.configure({
         props: [
-            indentNodeProp.add({
-                Application: delimitedIndent({closing: ')', align: false})
-            }),
-
-            foldNodeProp.add({
-                Application: foldInside
-            }),
-
             styleTags({
                 Identifier: t.variableName,
                 Boolean: t.bool,
